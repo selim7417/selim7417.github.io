@@ -299,6 +299,13 @@ body.ready .hero-bottom{opacity:1;transform:none}
 .email-btn:hover::before{transform:scale(1.05)}
 .email-btn > *{position:relative}
 .email-btn small{font-family:var(--mono);font-size:.7rem;padding:6px 10px;border-radius:99px;background:rgba(0,0,0,.1);letter-spacing:.05em}
+.nav-links a.nav-cv{color:var(--fg);border:1px solid rgba(255,255,255,.18);margin-left:6px}
+.nav-links a.nav-cv:hover{background:var(--fg);color:#000}
+.contact-actions{display:flex;justify-content:center;align-items:center;gap:12px;flex-wrap:wrap}
+.cv-btn{display:inline-flex;align-items:center;gap:14px;padding:22px 30px;border-radius:99px;border:1px solid rgba(255,255,255,.25);font-size:clamp(1rem,2.4vw,1.5rem);font-weight:600;letter-spacing:-.02em;transition:background .3s,color .3s,border-color .3s}
+.cv-btn:hover{background:var(--a3);color:#000;border-color:var(--a3)}
+.cv-btn .dl{display:inline-block;transition:transform .4s var(--ease)}
+.cv-btn:hover .dl{transform:translateY(3px)}
 .socials{display:flex;justify-content:center;gap:10px;margin-top:30px;flex-wrap:wrap}
 .socials a{padding:12px 20px;border-radius:99px;border:1px solid var(--line);font-family:var(--mono);font-size:.82rem;transition:background .3s,color .3s,border-color .3s}
 .socials a:hover{background:var(--fg);color:#000;border-color:var(--fg)}
@@ -371,6 +378,7 @@ footer a:hover{color:var(--fg)}
     <a href="#services" data-scramble>Services</a>
     <a href="#work" data-scramble>Work</a>
     <a href="#skills" data-scramble>Skills</a>
+    <a href="cv/Selim-El-Fata-CV.pdf" download class="nav-cv">CV ↓</a>
   </div>
   <a href="#contact" class="nav-cta magnetic"><span class="pulse"></span> Let's talk</a>
   <button class="menu-btn" id="menuBtn" aria-label="Open menu"><span></span><span></span></button>
@@ -381,6 +389,7 @@ footer a:hover{color:var(--fg)}
   <a href="#work"><small>03</small>Work</a>
   <a href="#skills"><small>04</small>Skills</a>
   <a href="#contact"><small>05</small>Contact</a>
+  <a href="cv/Selim-El-Fata-CV.pdf" download><small>06</small>Download CV</a>
 </div>
 
 <main>
@@ -477,7 +486,7 @@ footer a:hover{color:var(--fg)}
     <span class="kicker" data-reveal>(05) Contact</span>
     <h2 class="mega" data-reveal style="--d:.1s">Let's build<br><em class="grad">something wow.</em></h2>
     <div data-reveal style="--d:.2s">
-      <button class="email-btn magnetic" id="emailBtn"><span data-bind="email"></span><small>COPY</small></button>
+      <div class="contact-actions"><button class="email-btn magnetic" id="emailBtn"><span data-bind="email"></span><small>COPY</small></button><a class="cv-btn magnetic" href="cv/Selim-El-Fata-CV.pdf" download><span>Download CV</span><span class="dl">↓</span></a></div>
     </div>
     <div class="socials" id="socials" data-reveal style="--d:.3s"></div>
   </section>

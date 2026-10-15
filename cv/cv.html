@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Selim El Fata — CV</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 0; }
+  :root { --ink:#14141c; --muted:#5b5b6b; --line:#e4e4ec; --a1:#7c5cff; --a2:#22d3ee; --grad:linear-gradient(90deg,#7c5cff,#22d3ee); }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html, body { background:#fff; }
+  body { font-family:'Inter',system-ui,sans-serif; color:var(--ink); font-size:9.3pt; line-height:1.38; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  .page { width:210mm; height:296mm; overflow:hidden; padding:13mm 15mm 10mm; position:relative; }
+  .page::before { content:''; position:absolute; top:0; left:0; right:0; height:5px; background:var(--grad); }
+  a { color:inherit; text-decoration:none; }
+  h1, h2, h3 { font-family:'Space Grotesk',sans-serif; letter-spacing:-.01em; }
+
+  header { display:flex; justify-content:space-between; align-items:flex-end; gap:18px; padding-bottom:10px; border-bottom:1px solid var(--line); }
+  h1 { font-size:27pt; font-weight:700; line-height:1; letter-spacing:-.03em; }
+  .role { font-family:'Space Grotesk'; font-size:11.5pt; font-weight:500; margin-top:5px; color:var(--a1); }
+  .contact { text-align:right; font-size:8.6pt; color:var(--muted); line-height:1.6; }
+  .contact a { color:var(--ink); }
+  .contact b { color:var(--ink); font-weight:600; }
+
+  .summary { margin:9px 0 0; font-size:9.5pt; color:#2b2b36; }
+
+  section { margin-top:10px; }
+  h2 { font-size:9pt; font-weight:600; text-transform:uppercase; letter-spacing:.14em; color:var(--a1); display:flex; align-items:center; gap:10px; margin-bottom:7px; }
+  h2::after { content:''; flex:1; height:1px; background:var(--line); }
+
+  .item { margin-bottom:7px; break-inside:avoid; }
+  .item:last-child { margin-bottom:0; }
+  .row { display:flex; justify-content:space-between; align-items:baseline; gap:12px; }
+  h3 { font-size:10.6pt; font-weight:600; }
+  h3 span { font-weight:400; color:var(--muted); }
+  .date { font-size:8.6pt; color:var(--muted); white-space:nowrap; font-weight:500; }
+  .sub { font-size:8.8pt; color:var(--muted); margin-top:1px; }
+  ul { margin:4px 0 0 14px; }
+  li { margin-bottom:2px; padding-left:2px; }
+  li::marker { color:var(--a1); }
+  .link { color:var(--a1); font-weight:500; }
+
+  .skills { display:grid; grid-template-columns:118px 1fr; row-gap:4px; column-gap:10px; }
+  .skills dt { font-weight:600; font-size:9pt; }
+  .skills dd { color:#2b2b36; }
+
+  .two { display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+  .strengths { display:grid; grid-template-columns:1fr 1fr; gap:6px 22px; }
+  .strengths b { display:block; font-family:'Space Grotesk'; font-weight:600; font-size:9.6pt; }
+  .strengths div { color:#2b2b36; }
+  .todo { background:#fff3b0; padding:0 3px; border-radius:2px; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div>
+      <h1>Selim El Fata</h1>
+      <div class="role">AI Engineering Student · Software Developer</div>
+    </div>
+    <div class="contact">
+      Beirut, Lebanon<br>
+      <a href="mailto:selimelfata@gmail.com">selimelfata@gmail.com</a> · <a href="https://wa.me/96170741741">+961 70 741 741</a><br>
+      <a href="https://www.linkedin.com/in/selim-fata-272776440">linkedin.com/in/selim-fata-272776440</a><br>
+      <a href="https://github.com/selim7417">github.com/selim7417</a> · <b><a href="https://selim7417.github.io">selim7417.github.io</a></b>
+    </div>
+  </header>
+
+  <p class="summary">Fourth-year AI Engineering student who designs, builds and ships real software. I delivered a clinic management app that a dentist in Ghana now uses every day, and built a real-time black hole simulator that ray traces light through curved spacetime on the GPU. Open to freelance projects and full-time or part-time roles.</p>
+
+  <section>
+    <h2>Experience</h2>
+
+    <div class="item">
+      <div class="row"><h3>Freelance Software Developer <span>· Pro-denticare, dental clinic, Ghana</span></h3><span class="date">2026</span></div>
+      <ul>
+        <li>Designed and built a desktop clinic management app, delivered to the client and in daily use: patient records, appointment calendar, treatment records, invoices, receipts, prescriptions and patient email.</li>
+        <li>Built an interactive 3D dental chart in Three.js with an X-ray view, panoramic mode and a playable treatment-history timeline.</li>
+        <li>Made it work fully offline with a local SQLite database, scheduled backups and migrations tested against every past version; packaged installers for macOS and Windows and shipped v1.2.</li>
+        <li>Designed and built the product's marketing website.</li>
+      </ul>
+      <div class="sub">Electron · React · TypeScript · SQLite · Three.js · Tailwind · Zustand · Zod</div>
+    </div>
+
+    <div class="item">
+      <div class="row"><h3>Software Development Intern <span>· Melanion SAL</span></h3><span class="date">Jun 2026</span></div>
+      <ul>
+        <li>Completed a 40-hour software development program covering C# and object-oriented design, Git collaborative workflows, REST APIs and JSON, SQL data modelling and queries, and data cleaning, analysis and visualisation.</li>
+      </ul>
+    </div>
+
+    <div class="item">
+      <div class="row"><h3>Cashier <span>· Treasure Island</span></h3><span class="date">2023 – 2025</span></div>
+      <ul>
+        <li>Served a high volume of customers and handled payments accurately in a fast-paced environment, building strong communication skills and the ability to stay calm and reliable under pressure.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Projects</h2>
+
+    <div class="item">
+      <div class="row"><h3>Event Horizon <span>· real-time black hole simulator</span></h3><a class="date link" href="https://selim7417.github.io/event-horizon/">selim7417.github.io/event-horizon</a></div>
+      <ul>
+        <li>Wrote a GPU ray tracer for Schwarzschild spacetime from scratch, following every pixel's light ray backwards in real time; the black hole's shadow matches theory to within 0.35%.</li>
+        <li>Physically based colour from Planck's law and CIE 1931, with Doppler beaming and gravitational redshift; dynamic resolution, temporal anti-aliasing and an eight-chapter guided tour.</li>
+      </ul>
+      <div class="sub">WebGL2 · GLSL · JavaScript · no libraries</div>
+    </div>
+
+    <div class="item">
+      <div class="row"><h3>Personal Portfolio <span>· animated portfolio website</span></h3><a class="date link" href="https://selim7417.github.io">selim7417.github.io</a></div>
+      <ul>
+        <li>Designed and built an animated, responsive portfolio with an interactive particle canvas and scroll-driven motion, tuned to a steady 60 fps with no frameworks.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Education</h2>
+    <div class="item">
+      <div class="row"><h3>Artificial Intelligence Engineering <span>· ESIB, Université Saint-Joseph (USJ)</span></h3><span class="date">Expected 2028</span></div>
+      <div class="sub">Currently in 4th year of a 5-year engineering programme · Beirut, Lebanon</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Skills</h2>
+    <dl class="skills">
+      <dt>Languages</dt><dd>Python · C++ · C# · JavaScript · TypeScript · SQL · GLSL · HTML/CSS</dd>
+      <dt>Frameworks</dt><dd>React · Electron · Three.js · WebGL2 · Tailwind CSS · Zustand · Zod</dd>
+      <dt>Tools</dt><dd>Git &amp; GitHub · SQLite · REST APIs · Vite · Object-oriented design &amp; design patterns</dd>
+      <dt>Spoken</dt><dd>Arabic (excellent) · English (excellent) · French (very good)</dd>
+    </dl>
+  </section>
+
+  <section>
+    <h2>Strengths</h2>
+    <div class="strengths">
+      <div><b>End-to-end ownership</b>Took a client's app from first sketch to daily use, including design, code, testing and delivery.</div>
+      <div><b>Fast learner</b>Taught myself GPU programming and 3D graphics to build a physics-accurate simulator from scratch.</div>
+      <div><b>Calm under pressure</b>Two years of customer-facing work during busy shifts, staying accurate and friendly.</div>
+      <div><b>Clear communicator</b>Explains technical work in plain words and works directly with clients to understand what they need.</div>
+    </div>
+  </section>
+
+
+</div>
+</body>
+</html>
