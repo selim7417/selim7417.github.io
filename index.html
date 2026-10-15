@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Selim Fata — Developer & Designer</title>
-<meta name="description" content="Portfolio of Selim Fata — I design and build websites, web apps and well-architected software.">
-<meta property="og:title" content="Selim Fata — Developer & Designer">
+<title>Selim El Fata — Developer & Designer</title>
+<meta name="description" content="Portfolio of Selim El Fata — I design and build websites, web apps and well-architected software.">
+<meta property="og:title" content="Selim El Fata — Developer & Designer">
 <meta property="og:description" content="I design and build websites, web apps and well-architected software.">
 <meta name="theme-color" content="#07070b">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%237c5cff'/><stop offset='.5' stop-color='%2322d3ee'/><stop offset='1' stop-color='%23c6ff3d'/></linearGradient></defs><rect width='64' height='64' rx='16' fill='%2307070b'/><text x='50%' y='56%' text-anchor='middle' dominant-baseline='middle' font-family='Arial' font-weight='700' font-size='28' fill='url(%23g)'>SF</text></svg>">
@@ -400,7 +400,7 @@ footer a:hover{color:var(--fg)}
       <span data-bind="role"></span>
       <span data-bind="location"></span>
     </div>
-    <h1 class="hero-title" id="heroTitle" aria-label="Selim Fata"></h1>
+    <h1 class="hero-title" id="heroTitle" aria-label="Selim El Fata"></h1>
     <div class="hero-bottom">
       <p class="hero-sub">I design &amp; build <span class="rotator" id="rotator">websites</span><br>that look stunning and work flawlessly.</p>
       <div class="hero-cta">
@@ -505,10 +505,10 @@ footer a:hover{color:var(--fg)}
    ✏️  EDIT EVERYTHING ABOUT YOU HERE — the whole site is built from this.
    ===================================================================== */
 const CONFIG = {
-  name: "Selim Fata",
+  name: "Selim El Fata",
   role: "Developer & Designer",
-  location: "Available worldwide · Remote",
-  availability: "Open for freelance & internships",
+  location: "Beirut, Lebanon · Remote worldwide",
+  availability: "Open to freelance & full-time roles",
   email: "selimelfata@gmail.com",
   socials: [
     { label: "GitHub",   url: "https://github.com/selim7417" },
@@ -524,7 +524,7 @@ const CONFIG = {
     "Give me an idea and I'll turn it into something fast, beautiful and built to last.",
   ],
   terminal: [
-    { cmd: "whoami",            out: "selim fata — developer · designer · problem-solver" },
+    { cmd: "whoami",            out: "selim el fata — developer · designer · problem-solver" },
     { cmd: "cat stack.txt",     out: "HTML · CSS · JavaScript · React · Java · Node.js · Git" },
     { cmd: "echo $MISSION",     out: "Turn ideas into products people love to use." },
     { cmd: "./hire-me.sh",      out: "✔ Available now — scroll down to get in touch ↓", ok: true },
@@ -590,18 +590,18 @@ const CONFIG = {
   const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
   /* ---------- build content from CONFIG ---------- */
-  const initials = C.name.split(/\s+/).map(w => w[0]).join('').toUpperCase();
+  const nameParts = C.name.split(/\s+/), initials = (nameParts[0][0] + nameParts[nameParts.length - 1][0]).toUpperCase();
   const binds = { name: C.name, role: C.role, location: C.location, availability: C.availability, email: C.email, initials };
   $$('[data-bind]').forEach(el => el.textContent = binds[el.dataset.bind] ?? '');
   document.title = `${C.name} — ${C.role}`;
   $('#year').textContent = new Date().getFullYear();
 
   // hero title: split each word into chars
-  const words = C.name.split(/\s+/);
+  const words = [nameParts[0], nameParts.slice(1).join(' ')].filter(Boolean);
   let ci = 0;
   $('#heroTitle').setAttribute('aria-label', C.name);
   $('#heroTitle').innerHTML = words.map((w, wi) =>
-    `<span class="line" aria-hidden="true"><span class="${wi % 2 ? 'outline' : ''}">${[...w].map(ch => `<span class="char" style="--i:${ci++}">${esc(ch)}</span>`).join('')}</span>${wi === words.length - 1 ? '<span class="tag">(portfolio ’' + String(new Date().getFullYear()).slice(2) + ')</span>' : ''}</span>`
+    `<span class="line" aria-hidden="true"><span class="${wi % 2 ? 'outline' : ''}">${[...w].map(ch => `<span class="char" style="--i:${ci++}">${ch === ' ' ? '&nbsp;' : esc(ch)}</span>`).join('')}</span>${wi === words.length - 1 ? '<span class="tag">(portfolio ’' + String(new Date().getFullYear()).slice(2) + ')</span>' : ''}</span>`
   ).join('');
 
   const mq = (items) => { const s = items.map(t => `<span>${esc(t)}</span>`).join(''); return s + s; };
