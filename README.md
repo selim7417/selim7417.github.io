@@ -6,16 +6,16 @@ A one-file animated portfolio built with plain HTML, CSS and JavaScript. No fram
 
 ## Make it yours
 
-Open `index.html` and edit the `CONFIG` object near the bottom. Every name, link, project, skill and stat on the page comes from it:
+Open `index.html` and edit the `CONFIG` object near the bottom. Every name, link, project and skill on the page comes from it:
 
 - `email`, `socials`: your real email, GitHub and LinkedIn
-- `projects`: replace `your-username` in the URLs and add more projects (`hue` sets each card's colour)
-- `stats`, `skills`: keep them honest
+- `projects`: add or edit project cards (`hue` sets each card's colour, `image` adds a screenshot)
+- `skills`: the tools you use
 
 ## Publish on GitHub Pages
 
 1. Create a repo named **`selim7417.github.io`**
-2. Upload `index.html` **and the `projects/` folder** (it holds the live 3D dental chart) to it
+2. Upload `index.html` **and the `projects/` folder** (screenshots, the 3D dental chart and the Pro-denticare site) to it
 3. Open **Settings → Pages**, set Source to `main` branch and `/root`
 4. Your site goes live at `https://selim7417.github.io`
 

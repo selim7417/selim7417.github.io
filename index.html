@@ -226,6 +226,8 @@ body.ready .hero-bottom{opacity:1;transform:none}
 .p-glyph{position:absolute;inset:0;display:grid;place-items:center;font-size:clamp(3rem,8vw,7rem);font-weight:700;letter-spacing:-.06em;color:rgba(0,0,0,.75);mix-blend-mode:overlay;transition:transform .8s var(--ease)}
 .p-glyph.serif{font-weight:400}
 .project:hover .p-glyph{transform:scale(1.12) translateZ(40px)}
+.p-cover{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 0;transition:transform 1.2s var(--ease)}
+.project:hover .p-cover{transform:scale(1.05)}
 .p-num{position:absolute;top:18px;left:20px;font-family:var(--mono);font-size:.75rem;padding:5px 11px;border-radius:99px;background:rgba(0,0,0,.55);color:#fff;z-index:2}
 .p-glare{position:absolute;inset:0;pointer-events:none;background:radial-gradient(600px circle at var(--gx,50%) var(--gy,50%),rgba(255,255,255,.18),transparent 40%);opacity:0;transition:opacity .4s;z-index:3}
 .project:hover .p-glare{opacity:1}
@@ -251,6 +253,22 @@ body.ready .hero-bottom{opacity:1;transform:none}
 .dental-live img{width:100%;height:100%;object-fit:cover;object-position:50% 40%;transition:transform 1.2s var(--ease)}
 .project:hover .dental-live img{transform:scale(1.04)}
 .live-badge{position:absolute;right:18px;bottom:18px;z-index:2;display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:.72rem;padding:8px 14px;border-radius:99px;background:rgba(10,10,16,.85);border:1px solid rgba(255,255,255,.14);color:#fff;letter-spacing:.05em}
+
+.compare{position:absolute;inset:0;overflow:hidden;background:#000;touch-action:pan-y}
+.compare img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;user-select:none;pointer-events:none}
+.compare .cmp-top{clip-path:inset(0 calc(100% - var(--x)) 0 0)}
+.cmp-line{position:absolute;top:0;bottom:0;left:var(--x);width:2px;margin-left:-1px;background:rgba(255,255,255,.85);box-shadow:0 0 18px rgba(255,200,120,.8);pointer-events:none}
+.cmp-line i{position:absolute;top:50%;left:50%;width:44px;height:44px;margin:-22px 0 0 -22px;border-radius:50%;background:rgba(10,10,16,.75);border:1px solid rgba(255,255,255,.6);display:grid;place-items:center;font-style:normal;color:#fff;font-size:1rem}
+.cmp-tag{position:absolute;bottom:18px;font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;padding:7px 12px;border-radius:99px;background:rgba(10,10,16,.75);color:#fff;pointer-events:none;z-index:2}
+.cmp-tag.l{left:18px}.cmp-tag.r{right:18px}
+.compare input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0;z-index:3}
+.p-tagline{font-family:var(--serif);font-style:italic;font-size:clamp(1.2rem,1.8vw,1.5rem);color:var(--fg)!important;line-height:1.25}
+.p-highlights{list-style:none;display:grid;gap:8px;margin-top:4px;font-size:.92rem;color:#c9c9d4}
+.p-highlights li{display:flex;gap:10px}
+.p-highlights li::before{content:'✦';color:hsl(var(--h) 95% 62%);flex:none;font-size:.8em;margin-top:.2em}
+.p-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+.p-actions .btn{padding:13px 22px;font-size:.95rem}
+.project.has-actions{cursor:default}
 
 /* ---------- skills ---------- */
 .skills{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
@@ -310,6 +328,8 @@ footer a:hover{color:var(--fg)}
   .card.wide{grid-column:auto;grid-template-columns:1fr}
   .card.wide .c-num{display:none}
   .card{min-height:0}
+  .p-actions .btn{padding:11px 16px;font-size:.86rem;gap:8px}
+  .p-highlights{font-size:.88rem}
   #loader{flex-direction:column;align-items:flex-start;justify-content:flex-end;gap:12px}
   #loader .ld-count{font-size:28vw}
   .projects{grid-template-columns:1fr}
@@ -510,9 +530,29 @@ const CONFIG = {
     { title: "Performance & Accessibility", text: "Lighthouse-friendly, accessible and flawless on every screen size.", icon: "bolt" },
   ],
   projects: [
+    { title: "Event Horizon", year: "2026", type: "Physics Simulation · Featured", hue: 32, featured: true,
+      tagline: "A real-time general-relativistic black hole, ray traced in the browser.",
+      compare: { before: "projects/event-horizon/gallery/gravity-on.jpg", after: "projects/event-horizon/gallery/gravity-off.jpg", beforeLabel: "Gravity on", afterLabel: "Gravity off" },
+      text: "Every pixel follows a ray of light backwards through the curved spacetime of a black hole, integrating the photon's orbit on the GPU every frame. The disk's colours are computed from blackbody physics, including Doppler beaming and gravitational redshift. A guided tour explains what you're seeing, from the shadow to falling through the horizon.",
+      highlights: [
+        "Custom GPU ray tracer for Schwarzschild spacetime — the shadow matches theory to within 0.35%",
+        "Physically based colour: Planck's law × CIE 1931, Doppler beaming and gravitational redshift",
+        "Eight-chapter guided tour, live physics instruments and a light-path diagram",
+        "Three observers — hovering, orbiting, free-falling — each seeing the sky as relativity predicts",
+        "GPU-timed dynamic resolution, temporal anti-aliasing and a supersampled photo mode",
+      ],
+      tags: ["WebGL2", "GLSL", "JavaScript", "General relativity", "Physics simulation", "No libraries"],
+      actions: [
+        { label: "Launch simulation", url: "https://selim7417.github.io/event-horizon/", primary: true },
+        { label: "Guided tour", url: "https://selim7417.github.io/event-horizon/#tour" },
+        { label: "Source", url: "https://github.com/selim7417/event-horizon" },
+      ] },
     { title: "Dental Clinic App", year: "2026", type: "Desktop App · v1.2 shipped", hue: 205, viz: "dental", featured: true,
       text: "A complete clinic management app for a dentist — patient register, appointment calendar, treatment records, invoices and receipts — centred on a photoreal, interactive 3D dental chart with X-ray mode, panoramic view and a treatment-history timeline. Offline-first with local SQLite and automatic backups, packaged for macOS and Windows.",
       tags: ["Electron", "React", "TypeScript", "Three.js", "SQLite", "Tailwind", "Zustand", "Zod"], url: "projects/dental-chart.html" },
+    { title: "Pro-denticare Website", year: "2026", type: "Product Website", hue: 225, image: "projects/pro-denticare/cover.jpg",
+      text: "The marketing site for my clinic app — a calm, clean landing page with animated app mock-ups, the live 3D dental chart built in, document previews, an FAQ and a contact form that opens a ready-to-send email.",
+      tags: ["HTML", "CSS", "JavaScript", "Three.js", "Responsive"], url: "projects/pro-denticare/index.html" },
     { title: "This Portfolio", year: "2026", type: "Creative Dev", hue: 320, glyph: "✦",
       text: "Interactive particle field, magnetic buttons, custom cursor and scroll-driven type — zero frameworks, one file.",
       tags: ["JavaScript", "Canvas", "Motion"], url: "https://github.com/selim7417/selim7417.github.io" },
@@ -591,10 +631,31 @@ const CONFIG = {
   // featured dental card: the real 3D chart running live, scaled to fill the card
   const dentalViz = () => `<div class="dental-live"><img src="projects/dental-chart.jpg" alt="3D dental chart from the Dental Clinic App" loading="lazy" decoding="async"><span class="live-badge"><span class="pulse"></span>Click to try the live 3D chart</span></div>`;
 
+  const compareViz = c => `<div class="compare" style="--x:50%">
+      <img src="${esc(c.after)}" alt="${esc(c.afterLabel)}" loading="lazy" decoding="async">
+      <img class="cmp-top" src="${esc(c.before)}" alt="${esc(c.beforeLabel)}" loading="lazy" decoding="async">
+      <span class="cmp-line"><i>⟷</i></span>
+      <span class="cmp-tag l">${esc(c.beforeLabel)}</span><span class="cmp-tag r">${esc(c.afterLabel)}</span>
+      <input type="range" min="0" max="100" value="50" step="0.1" aria-label="Drag to compare ${esc(c.beforeLabel)} and ${esc(c.afterLabel)}">
+    </div>`;
+  const featureCard = (p, i) => `
+    <article class="project featured has-actions" data-reveal style="--h:${p.hue}">
+      <div class="p-visual"><div class="p-art"></div>${compareViz(p.compare)}<span class="p-num">${String(i + 1).padStart(2, '0')}</span></div>
+      <div class="p-body">
+        <div class="p-meta"><span>${esc(p.type)}</span><span>${esc(p.year)}</span></div>
+        <h3>${esc(p.title)}</h3>
+        <p class="p-tagline">${esc(p.tagline)}</p>
+        <p>${esc(p.text)}</p>
+        <ul class="p-highlights">${p.highlights.map(h => `<li>${esc(h)}</li>`).join('')}</ul>
+        <div class="tags">${p.tags.map(t => `<span>${esc(t)}</span>`).join('')}</div>
+        <div class="p-actions">${p.actions.map(a => `<a class="btn ${a.primary ? 'primary' : 'ghost'} magnetic" href="${esc(a.url)}" target="_blank" rel="noopener"><span>${esc(a.label)}</span><span class="arrow">↗</span></a>`).join('')}</div>
+      </div>
+    </article>`;
+
   let shift = 0;
-  $('#projects').innerHTML = C.projects.map((p, i) => `
+  $('#projects').innerHTML = C.projects.map((p, i) => p.actions ? featureCard(p, i) : `
     <a class="project${p.featured ? ' featured' : (shift++ % 2 ? ' shift' : '')}" href="${esc(p.url)}" target="_blank" rel="noopener" data-reveal data-view style="--h:${p.hue};--d:${(i % 2) * .1}s">
-      <div class="p-visual"><div class="p-art"></div><div class="p-grid"></div>${p.viz === 'dental' ? dentalViz() : `<div class="p-glyph${p.serif ? ' serif' : ''}">${esc(p.glyph)}</div>`}<span class="p-num">${String(i + 1).padStart(2, '0')}</span></div>
+      <div class="p-visual"><div class="p-art"></div><div class="p-grid"></div>${p.viz === 'dental' ? dentalViz() : p.image ? `<img class="p-cover" src="${esc(p.image)}" alt="${esc(p.title)} screenshot" loading="lazy" decoding="async">` : `<div class="p-glyph${p.serif ? ' serif' : ''}">${esc(p.glyph)}</div>`}<span class="p-num">${String(i + 1).padStart(2, '0')}</span></div>
       <div class="p-glare"></div>
       <div class="p-body">
         <div class="p-meta"><span>${esc(p.type)}</span><span>${esc(p.year)}</span></div>
@@ -622,6 +683,22 @@ const CONFIG = {
     <div class="step" data-reveal style="--d:${i * .08}s"><span class="n">0${i + 1}</span><div><h4>${esc(s.title)}</h4><p>${esc(s.text)}</p></div><span class="bar"></span></div>`).join('');
 
   $('#socials').innerHTML = C.socials.map(s => `<a href="${esc(s.url)}" target="_blank" rel="noopener" class="magnetic">${esc(s.label)} ↗</a>`).join('');
+
+  $$('.compare').forEach(cmp => {
+    const input = $('input', cmp), set = v => cmp.style.setProperty('--x', v + '%');
+    input.addEventListener('input', () => { cmp.dataset.touched = 1; set(input.value); });
+    if (reduce) return;
+    const hint = new IntersectionObserver(es => {
+      if (!es[0].isIntersecting) return; hint.disconnect();
+      const t0 = performance.now();
+      (function sweep(t) {
+        if (cmp.dataset.touched) return;
+        const k = Math.min(1, (t - t0) / 2600), v = 50 + Math.sin(k * Math.PI * 2) * 28 * (1 - k);
+        set(v); input.value = v; if (k < 1) requestAnimationFrame(sweep);
+      })(t0);
+    }, { threshold: .6 });
+    hint.observe(cmp);
+  });
 
   /* ---------- loader ---------- */
   const loader = $('#loader'), count = $('#ld-count'), bar = $('#ld-bar');
@@ -712,7 +789,7 @@ const CONFIG = {
   $$('.card').forEach(el => el.addEventListener('mousemove', e => {
     const r = el.getBoundingClientRect(); el.style.setProperty('--mx', e.clientX - r.left + 'px'); el.style.setProperty('--my', e.clientY - r.top + 'px');
   }));
-  if (fine && !reduce) $$('.project').forEach(el => {
+  if (fine && !reduce) $$('.project:not(.has-actions)').forEach(el => {
     el.addEventListener('mousemove', e => {
       const r = el.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
       el.style.transition = 'transform .1s linear, border-color .4s';
