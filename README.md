@@ -1,26 +1,20 @@
-# Selim Fata — Portfolio
+# Selim El Fata — Portfolio
 
-A one-file animated portfolio built with plain HTML, CSS and JavaScript. No frameworks and no build step.
+**Live:** https://selim7417.github.io
 
-**Features:** interactive particle network · animated letter-by-letter hero · text-scramble word rotator · custom cursor · magnetic buttons · 3D tilt project cards with glare · spotlight service cards · live terminal typing · scroll-lit manifesto · animated counters · dual marquee · fully responsive · respects `prefers-reduced-motion`.
+One animated page with no frameworks and no build step. It has five projects with full case studies, filters, a quick menu (⌘K / Ctrl K), a live Beirut clock and a downloadable CV.
 
-## Make it yours
+## Edit it
 
-Open `index.html` and edit the `CONFIG` object near the bottom. Every name, link, project and skill on the page comes from it:
+Everything on the page comes from the `CONFIG` object near the bottom of `index.html`: your details, projects, case studies, experience, services and skills.
 
-- `email`, `socials`: your real email, GitHub and LinkedIn
-- `projects`: add or edit project cards (`hue` sets each card's colour, `image` adds a screenshot)
-- `skills`: the tools you use
-
-## Publish on GitHub Pages
-
-1. Create a repo named **`selim7417.github.io`**
-2. Upload `index.html` **and the `projects/` folder** (screenshots, the 3D dental chart and the Pro-denticare site) to it
-3. Open **Settings → Pages**, set Source to `main` branch and `/root`
-4. Your site goes live at `https://selim7417.github.io`
+- **Add a project:** copy one entry in `projects`, change the text, and put its images in `projects/<name>/`.
+- **Share one project:** every case study has its own link, like `https://selim7417.github.io/#/work/safelight`.
+- **Link preview:** `og.jpg` is the image shown when the link is shared on WhatsApp, LinkedIn and so on.
+- **CV:** `cv/cv.html` is the source; `cv/Selim-El-Fata-CV.pdf` is the file people download.
 
 ## Run locally
 
 ```bash
-python3 -m http.server 5173
+python3 -m http.server 5180
 ```
